@@ -747,7 +747,7 @@ NS.UpdateCharacter = function()
 				local orders = ordersKey and NS.db["characters"][k]["orders"][ordersKey]["total"] or 0;
 				if orders == 0 then
 					table.insert( NS.db["characters"][k]["orders"], {
-						["name"] = GetItemInfo( 139308 ) or L["Champion Armaments"],
+						["name"] = C_Item.GetItemInfo( 139308 ) or L["Champion Armaments"],
 						["texture"] = texture,
 						["capacity"] = capacity,
 					} );
@@ -765,7 +765,7 @@ NS.UpdateCharacter = function()
 				local orders = ordersKey and NS.db["characters"][k]["orders"][ordersKey]["total"] or 0;
 				if orders == 0 then
 					table.insert( NS.db["characters"][k]["orders"], {
-						["name"] = GetItemInfo( 139460 ) or L["Seal of Broken Fate"],
+						["name"] = C_Item.GetItemInfo( 139460 ) or L["Seal of Broken Fate"],
 						["texture"] = texture,
 						["capacity"] = capacity,
 					} );
@@ -809,9 +809,9 @@ NS.UpdateCharacter = function()
 						if reward.quality then
 							mission.rewardsList[#mission.rewardsList + 1] = ITEM_QUALITY_COLORS[reward.quality + 1].hex .. reward.title .. FONT_COLOR_CODE_CLOSE;
 						elseif reward.itemID then
-							local itemName,_,itemRarity,_,_,_,_,_,_,itemTexture = C_AddOns.GetItemInfo( reward.itemID );
+							local itemName,_,itemRarity,_,_,_,_,_,_,itemTexture = C_Item.GetItemInfo( reward.itemID );
 							if not itemTexture then
-								_,_,_,_,itemTexture = C_AddOns.GetItemInfoInstant( reward.itemID );
+								_,_,_,_,itemTexture = C_Item.GetItemInfoInstant( reward.itemID );
 							end
 							if itemName then
 								mission.rewardsList[#mission.rewardsList + 1] = "|T" .. itemTexture .. ":20:20:-2:0|t" .. ITEM_QUALITY_COLORS[itemRarity].hex .. itemName .. FONT_COLOR_CODE_CLOSE;
